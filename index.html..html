@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8dce8">
+<title>IA ANA — Sua inteligência, sua companhia</title>
+<style>
+:root{--pink:#e879a6;--deep:#a83f70;--soft:#fff0f6;--ink:#392633;--muted:#866b7a;--line:#f2c8da}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 5%,#ffe0ed 0,transparent 32%),linear-gradient(135deg,#fff9fc,#fbe8f1 55%,#fff)}
+.app{min-height:100vh;display:grid;grid-template-columns:270px 1fr;max-width:1500px;margin:auto;padding:18px;gap:18px}
+.sidebar,.main{background:#ffffffc9;border:1px solid #fff;border-radius:28px;box-shadow:0 15px 50px #b85e8520;backdrop-filter:blur(18px)}
+.sidebar{padding:22px;display:flex;flex-direction:column;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}.brandmark{width:48px;height:48px;border-radius:17px;background:linear-gradient(145deg,#f6a9c7,#d95d91);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 8px 20px #d95d9140}.brand strong{font-size:21px;letter-spacing:.5px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.newchat{border:0;border-radius:15px;background:linear-gradient(100deg,#e979a6,#d65d91);color:white;padding:13px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 7px 18px #d65d9133}
+.side-label{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:#a68a99;font-weight:800;margin:8px 0 0}
+.side-link{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:13px;color:#73596a;font-size:14px}.side-link.active{background:#ffedf4;color:var(--deep);font-weight:700}
+.side-note{margin-top:auto;padding:14px;border-radius:17px;background:#fff0f6;color:#87566e;font-size:12px;line-height:1.5}
+.main{display:flex;flex-direction:column;min-height:calc(100vh - 36px);overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #f7e2eb}.status{font-size:12px;color:#8b7180}.online{display:inline-block;width:8px;height:8px;background:#6fc59b;border-radius:50%;margin-right:7px}
+.content{width:min(850px,100%);margin:auto;padding:30px 24px;display:flex;flex-direction:column;flex:1}
+.hero{text-align:center;margin:12px 0 26px}.avatar{width:94px;height:94px;border-radius:30px;margin:0 auto 16px;display:grid;place-items:center;font-size:48px;background:linear-gradient(145deg,#ffe1ed,#f5a9c7);border:4px solid white;box-shadow:0 12px 30px #d65d9130}.hero h1{margin:0;font-size:clamp(30px,5vw,44px);color:var(--deep);letter-spacing:-1.5px}.hero p{margin:8px 0;color:var(--muted)}
+.welcome{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 20px;box-shadow:0 8px 25px #b85e8510;line-height:1.55}.welcome b{color:var(--deep)}
+.suggestions{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 24px}.suggestions button{border:1px solid var(--line);background:#fff9fc;color:#87566e;border-radius:999px;padding:10px 14px;font-size:12px;cursor:pointer}.suggestions button:hover{background:#ffedf4}
+.messages{display:flex;flex-direction:column;gap:12px;margin:8px 0 18px}.msg{max-width:82%;padding:13px 16px;border-radius:18px;line-height:1.5;font-size:14px;white-space:pre-wrap}.msg.ana{align-self:flex-start;background:white;border:1px solid #f3d5e2;border-bottom-left-radius:5px}.msg.user{align-self:flex-end;background:#e978a5;color:white;border-bottom-right-radius:5px}
+.composer{margin-top:auto;display:flex;gap:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 28px #b85e8512}.composer input{flex:1;min-width:0;border:0;outline:0;padding:10px 8px;font:inherit;color:var(--ink);background:transparent}.composer input::placeholder{color:#b49baa}.send{width:46px;height:46px;border:0;border-radius:16px;background:linear-gradient(145deg,#ef8bb3,#d95d91);color:white;font-size:19px;cursor:pointer}
+.foot{text-align:center;color:#a88e9d;font-size:11px;margin:12px 0 0}
+@media(max-width:760px){.app{display:block;padding:9px}.sidebar{display:none}.main{min-height:calc(100dvh - 18px);border-radius:22px}.topbar{padding:15px 17px}.content{padding:24px 16px}.hero{margin:10px 0 20px}.msg{max-width:92%}}
+</style>
+</head>
+<body>
+<div class="app">
+ <aside class="sidebar">
+  <div class="brand"><div class="brandmark">ANA</div><div><strong>IA ANA</strong><small>Sua inteligência, sua companhia</small></div></div>
+  <button class="newchat" id="newChat">＋ Nova conversa</button>
+  <div class="side-label">Menu</div>
+  <div class="side-link active">✧ &nbsp; Conversar</div>
+  <div class="side-link">◷ &nbsp; Histórico <small>(em breve)</small></div>
+  <div class="side-link">⚙ &nbsp; Configurações <small>(em breve)</small></div>
+  <div class="side-note"><b>Um projeto em construção 💗</b><br>Esta é a primeira versão visual da IA ANA. Para responder com inteligência real, vamos conectar um serviço de IA com segurança.</div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><b>✦ IA ANA</b><span class="status"><i class="online"></i>Interface de demonstração</span></header>
+  <section class="content">
+   <div class="hero">
+    <div class="avatar" aria-label="Personagem virtual da IA ANA">👩🏻‍🚀</div>
+    <h1>Olá, eu sou a ANA!</h1>
+    <p>Sua inteligência. Sua companhia. ✨</p>
+   </div>
+   <div class="welcome"><b>Oi! Que bom ter você aqui. 💗</b><br>Sou a IA ANA, uma assistente virtual feminina, simpática e inteligente. Pode me contar o que precisa, pedir ideias ou tirar dúvidas!</div>
+   <div class="suggestions">
+    <button data-prompt="Me dê uma ideia criativa ✨">✨ Ideias criativas</button>
+    <button data-prompt="Me explique algo de um jeito simples">📚 Aprender algo</button>
+    <button data-prompt="Me ajude a organizar meu dia">🗓 Organizar meu dia</button>
+    <button data-prompt="Quero conversar um pouquinho 💗">💗 Conversar</button>
+   </div>
+   <div class="messages" id="messages" aria-live="polite"></div>
+   <form class="composer" id="chatForm"><input id="prompt" autocomplete="off" placeholder="Digite sua mensagem para a ANA..." aria-label="Sua mensagem"><button class="send" aria-label="Enviar mensagem">➤</button></form>
+   <div class="foot">IA ANA • Protótipo inicial — respostas demonstrativas</div>
+  </section>
+ </main>
+</div>
+<script>
+const messages=document.getElementById('messages'),input=document.getElementById('prompt');
+function reply(text){
+ const t=text.toLowerCase();
+ if(t.includes('oi')||t.includes('olá')) return 'Oii! 💗 Que bom falar com você! O que vamos descobrir hoje?';
+ if(t.includes('ideia')) return 'Claro! ✨ Uma ideia: escolha um pequeno projeto que você queira tirar do papel e divida em três passos simples. Posso ajudar a planejar cada um!';
+ if(t.includes('dia')||t.includes('organizar')) return 'Vamos organizar! 💕 Anote primeiro as três coisas mais importantes do seu dia. Depois, coloque cada uma em um horário realista e reserve um tempinho para descansar.';
+ if(t.includes('aprender')||t.includes('explique')) return 'Adoro aprender coisas novas! 📚 Me diga qual assunto você quer entender e eu posso explicar com exemplos bem simples.';
+ return 'Recebi sua mensagem! 💗 Esta versão ainda é uma demonstração visual, então minhas respostas são pré-programadas. O próximo passo é conectar a IA ANA a um modelo de inteligência artificial real para conversar sobre qualquer assunto.';
+}
+function send(text){text=(text||input.value).trim();if(!text)return;add(text,'user');input.value='';setTimeout(()=>add(reply(text),'ana'),350)}
+function add(text,who){const el=document.createElement('div');el.className='msg '+who;el.textContent=text;messages.appendChild(el);messages.scrollIntoView({behavior:'smooth',block:'end'});}
+document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();send()});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>send(b.dataset.prompt)));
+document.getElementById('newChat').addEventListener('click',()=>{messages.innerHTML='';input.focus()});
+</script>
+</body>
+</html>
